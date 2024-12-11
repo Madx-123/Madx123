@@ -76,7 +76,8 @@ with st.sidebar:
     )
 
 # Cargar el modelo
-model = pickle.load(open('models/svm_hp.pkl', 'rb'))
+model = pickle.load(open('svm_hp.pkl', 'rb'))
+
 
 # Función principal de cada sección
 def main_content():

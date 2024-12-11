@@ -6,6 +6,19 @@ import pandas as pd
 import numpy as np
 import pickle
 
+
+import urllib.request
+import pickle
+
+# Descargar el archivo svm_hp.pkl desde GitHub
+url = 'https://github.com/Madx-123/Madx123/raw/main/svm_hp.pkl'
+filename = 'svm_hp.pkl'
+urllib.request.urlretrieve(url, filename)
+
+# Cargar el modelo
+model = pickle.load(open(filename, 'rb'))
+
+
 # Configuración de la página de Streamlit
 st.set_page_config(
     page_title="Predicción del Autismo usando Machine Learning",
@@ -75,8 +88,6 @@ with st.sidebar:
         default_index=0
     )
 
-# Cargar el modelo
-model = pickle.load(open('svm_hp.pkl', 'rb'))
 
 
 # Función principal de cada sección
